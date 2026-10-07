@@ -1,0 +1,14 @@
+# البوابة الإلكترونية الموحدة لحجز المعاهد والأكاديميات الخاصة
+
+- [الرئيسية - بوابة حجز المعاهد والأكاديميات الخاصة والتعليم المهني المعتمد بمصر](https://eg-academies.com/)
+- [تصفح الأقسام والتخصصات الدراسية المعتمدة](https://eg-academies.com/departments)
+- [تثبيت وحجز خصومات المصروفات الفورية](https://eg-academies.com/discounts)
+- [تفاصيل الشهادات والاعتمادات والتوثيق الرسمي](https://eg-academies.com/accreditation)
+- [دليل الخطوات الأربعة للتسجيل الإلكتروني واستخراج الاستمارة الموحدة](https://eg-academies.com/registration-guide)
+- [الأقسام والتخصصات الأكثر طلباً في سوق العمل المصري حالياً](https://eg-academies.com/trending)
+- [اختبار تحديد التخصص والمسار الدراسي المناسب لميولك ومهاراتك](https://eg-academies.com/guidance)
+- [أحدث الأخبار والتنبيهات العامة للقبول والتدريب بالأكاديميات المعتمدة](https://eg-academies.com/news)
+- [من نحن](https://eg-academies.com/about)
+- [سياسة الخصوصية وميثاق الأمان الرقمي وخصوصية البيانات للطلاب](https://eg-academies.com/privacy)
+- [استخراج وطباعة استمارة الحجز الإلكتروني الموحدة](https://eg-academies.com/form-extraction)
+- [بوابة الاستفسارات والدعم المباشر والشكاوى](https://eg-academies.com/complaints)

@@ -1,0 +1,8 @@
+{
+  "name": "اضافة شهد وتفعيل التسجيلات بالاستماره",
+  "description": "Imported from GitHub: thqtybrby526/---",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

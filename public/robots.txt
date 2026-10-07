@@ -1,0 +1,19 @@
+User-agent: *
+Allow: /
+Allow: /departments
+Allow: /discounts
+Allow: /accreditation
+Allow: /registration-guide
+Allow: /trending
+Allow: /guidance
+Allow: /news
+Allow: /about
+Allow: /privacy
+
+# Block non-indexable/utility pages
+Disallow: /admin
+Disallow: /thank-you
+Disallow: /form-extraction
+Disallow: /complaints
+
+Sitemap: https://eg-academies.com/sitemap.xml

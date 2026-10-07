@@ -1,0 +1,16 @@
+{
+  "short_name": "بوابة المعاهد",
+  "name": "بوابة المعاهد والأكاديميات الخاصة المعتمدة",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "background_color": "#0A2463",
+  "theme_color": "#0A2463",
+  "display": "standalone",
+  "orientation": "portrait"
+}
