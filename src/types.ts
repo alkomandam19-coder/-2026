@@ -1,0 +1,31 @@
+export interface Lead {
+  id: string;
+  reservationCode: string;
+  studentName: string;
+  phoneNumber: string;
+  whatsappNumber?: string;
+  graduationYear?: string;
+  governorate?: string;
+  educationLevel?: string;
+  basicCourse?: string;
+  selectedDepartments?: string[];
+  notes?: string;
+  rawNotes?: string;
+  date?: string;
+  timestamp?: number | string;
+  expiresAt?: string;
+  status?: string;
+  agentName?: string;
+  agent_name?: string;
+  refCode?: string;
+  specialization?: string;
+  internalNotes?: string;
+  wantsEquivalence?: boolean;
+  academyName?: string;
+  branch?: string;
+  submissionDate?: string;
+  appliedStatus?: string;
+  academyNotes?: string;
+  hasExtractedForm?: boolean;
+  formExtracted?: boolean;
+}

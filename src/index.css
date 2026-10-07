@@ -1,0 +1,342 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&family=Cairo:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-amiri: "Amiri", "Traditional Arabic", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-navy: #0A2463;
+  --color-brand-gold: #FFD700;
+  --color-brand-coral: #FF7F50;
+  --color-brand-turquoise: #40E0D0;
+
+  --animate-shake: shake 0.4s ease-in-out;
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    15%, 45%, 75% { transform: translateX(-8px); }
+    30%, 60%, 90% { transform: translateX(8px); }
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(50%); }
+  }
+}
+
+body {
+  font-family: var(--font-sans);
+  background-image: url('./assets/images/bg.jpg'); /* طالما في بابلك بنكتب اسمها علطول كدة */
+  background-size: cover;
+  background-position: center;
+  background-attachment: scroll; /* Default to scroll for lightweight mobile performance */
+  background-repeat: no-repeat;
+  color: #0f172a;
+}
+
+.font-amiri {
+  font-family: var(--font-amiri), "Amiri", "Traditional Arabic", serif !important;
+}
+
+/* ========================================================================= */
+/* GLOBAL MOBILE DESIGN SYSTEM RESCALING (Compact 25-30% density scale)     */
+/* Compact production-grade density for smartphones (<768px / 390px)        */
+/* Automatically rescales typography, icons, padding, margins, gaps & cards */
+/* ========================================================================= */
+@media (max-width: 767px) {
+  html {
+    font-size: 73.5% !important; /* ~26.5% global scale reduction across all rem units */
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    letter-spacing: -0.015em;
+    line-height: 1.38;
+  }
+
+  /* Compact Card & Container Radii on Mobile */
+  .rounded-3xl {
+    border-radius: 1rem !important;
+  }
+  .rounded-2xl {
+    border-radius: 0.75rem !important;
+  }
+  .rounded-xl {
+    border-radius: 0.5rem !important;
+  }
+
+  /* Dense & Compact Form Inputs & Selects on Mobile */
+  input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"],
+  select,
+  textarea {
+    padding-top: 0.45rem !important;
+    padding-bottom: 0.45rem !important;
+    padding-left: 0.65rem !important;
+    padding-right: 0.65rem !important;
+    font-size: 0.85rem !important;
+    min-height: 38px !important;
+  }
+
+  /* Compact Form Labels & Margins */
+  label {
+    margin-bottom: 0.25rem !important;
+    font-size: 0.8rem !important;
+  }
+
+  /* Compact Menu & Navigation Spacing */
+  nav a, nav button {
+    letter-spacing: -0.01em;
+  }
+
+  /* Mobile Performance & Smooth Scrolling Optimizations */
+  /* Simplify heavy GPU filter blurs and deep layered box shadows for smooth 60fps scrolling */
+  .backdrop-blur-xl,
+  .backdrop-blur-2xl,
+  .backdrop-blur-3xl {
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+  
+  .shadow-2xl {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Optimized rendering hints */
+  section, article, main, header, footer {
+    contain: content;
+  }
+}
+
+@media (max-width: 420px) {
+  html {
+    font-size: 70% !important; /* ~30% compact density scale for 390px mobile viewports */
+  }
+}
+
+/* On desktops/large tablets (min-width: 1024px), we can safely enable fixed background-attachment */
+@media (min-width: 1024px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ======================================================= */
+/* الخلطة النهائية المدمرة للأزرق وتظبيط الشارات في الصفحة الرئيسية فقط */
+/* ======================================================= */
+
+/* 1. إجبار الصورة والـ Overlay على جسم الصفحة الرئيسية */
+#homepage-root {
+  background-image: linear-gradient(to bottom, rgba(15, 23, 42, 0.78), rgba(15, 23, 42, 0.65)), url('./assets/images/bg.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-attachment: scroll !important; /* Default to scroll on mobile for high-performance scrolling */
+  background-repeat: no-repeat !important;
+}
+
+@media (min-width: 1024px) {
+  #homepage-root {
+    background-attachment: fixed !important; /* Fixed background ONLY on desktop where hardware resources are plentiful */
+  }
+}
+
+/* 2. نسف أي ألوان خلفية أو تدرجات زرقاء من السيكشن الأول (Hero) */
+#homepage-root > section:first-of-type,
+#homepage-root [id*="hero"] {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* 3. تلوين عناصر العناوين بالذهبي الصريح */
+#homepage-root .text-amber-400,
+#homepage-root [class*="text-amber"] {
+  color: #f59e0b !important; /* لون ذهبي دافئ وواضح */
+  font-weight: 900 !important;
+}
+
+/* 4. نسف البلور الزجاجي عن شارات (تسجيلات حية) و (تأجيل تجنيد) وتغميق خلفيتهم */
+#homepage-root .live-badge-item,
+#homepage-root .counters-row-item {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background-color: rgba(15, 23, 42, 0.92) !important; /* خلفية كحلي داكنة جداً مصمتة */
+  border: 1px solid rgba(245, 158, 11, 0.5) !important; /* إطار ذهبي ينطق الكارت */
+}
+
+/* إجبار الكلمات جوة الشارات تقلب أبيض منور */
+#homepage-root .live-badge-item *,
+#homepage-root .counters-row-item * {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+html {
+  scroll-behavior: smooth !important;
+}
+
+/* نبض خارجي شيك للشات بوت */
+.chat-bot-pulse {
+  animation: external-glowing-pulse 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Scroll-triggered modern CSS Scroll-Driven Animations - Qaboo Reveal */
+@keyframes element-qaboo {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* هذا الكلاس يطبق على العناصر الداخلية لضمان ظهورها الفوري وبأعلى سلاسة */
+.element-reveal {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.element-reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes external-glowing-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.8); /* تبدأ من الحافة الخارجية تماماً */
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(245, 158, 11, 0); /* تموّج خارجي ناعم ينتشر للخارج ويختفي */
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0);
+  }
+}
+
+/* Gold Glowing Hover Effect for Specialties Cards */
+.specialty-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+.specialty-card-hover:hover {
+  box-shadow: 0 0 25px rgba(212, 152, 0, 0.6) !important;
+  border-color: rgba(212, 152, 0, 0.8) !important;
+  transform: translateY(-4px) scale(1.02) !important;
+  outline: 2px solid rgba(212, 152, 0, 0.5) !important;
+  animation: specialty-gold-pulse 1.8s infinite ease-in-out;
+}
+
+@keyframes specialty-gold-pulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(212, 152, 0, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(212, 152, 0, 0.9);
+  }
+}
+
+
+
+/* ======================================================= */
+/* تخصيص التحميل الكسول وتأثير التلاشي الناعم (Fade-in) */
+/* ======================================================= */
+.lazy-load-image-background.lazy-load-image-loaded {
+  filter: none !important;
+  opacity: 1 !important;
+  transition: opacity 0.5s ease-in-out !important; /* سرعة تلاشي الصور (يمكن تغيير 0.5s لثوانٍ أخرى لتسريع أو إبطاء الحركة) */
+}
+
+.lazy-load-image-background {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out !important;
+}
+
+/* ======================================================= */
+/* فائقة السرعة للأجهزة المحمولة - طيران وبدون أي ثقل (120FPS) */
+/* ======================================================= */
+@media (max-width: 1023px) {
+  /* 1. إيقاف الفلاتر الزجاجية الثقيلة التي تسبب بطء التصفح والـ Scroll على الهواتف */
+  .backdrop-blur,
+  .backdrop-blur-sm,
+  .backdrop-blur-md,
+  .backdrop-blur-lg,
+  .backdrop-blur-xl,
+  [class*="backdrop-blur"] {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+  
+  /* 2. تحويل الشفافيات إلى ألوان صلبة/مكثفة مريحة للعين وفائقة السرعة في الرندرة */
+  .bg-white\/95, 
+  .bg-white\/90,
+  .bg-white\/80 {
+    background-color: #ffffff !important;
+  }
+  
+  .bg-slate-900\/65,
+  .bg-slate-900\/80,
+  .bg-slate-950\/80 {
+    background-color: #0f172a !important;
+  }
+
+  /* 3. عناصر الرندرة الفورية لعدم حجب المحتوى على الموبايل */
+  .element-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .element-reveal.is-revealed {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  /* 4. إلغاء حركات النبض والارتداد المتكرر اللا نهائي على الموبايل لتوفير البطارية وتقليل المعالجة */
+  .animate-bounce,
+  .animate-pulse,
+  .chat-bot-pulse {
+    animation: none !important;
+  }
+  
+  /* إبقاء وميض نقطة الاتصال الحية فقط بشكل مبسط وخفيف جداً */
+  .relative .animate-ping {
+    animation-duration: 2s !important;
+  }
+
+  /* 5. تسريع التفاعل باللمس وإزالة التأخير 300ms على الموبايل */
+  html, body, button, a, input, select, textarea {
+    -webkit-tap-highlight-color: transparent !important;
+    touch-action: manipulation !important;
+  }
+
+  /* 6. تسريع المعالجة وتحسين سرعة التصفح Scroll 120FPS */
+  nav, header, footer {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /* 7. عزل الرندرة وتجنب إعادة الحساب الكلي للصفحة */
+  section, article {
+    contain: layout style paint;
+  }
+}
+
